@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1034516456824",
+    "project_id": "brilliantnotes-b1d7e",
+    "storage_bucket": "brilliantnotes-b1d7e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034516456824:android:f0533c54574ded4613548d",
+        "android_client_info": {
+          "package_name": "com.mirageprism.brilliantnotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1034516456824-caphd9hmb6r9p8jdd4od8tphp2bnrh2d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC69dkNhlPiU61NGK1fPtVbDsVrUdwA-zA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1034516456824-caphd9hmb6r9p8jdd4od8tphp2bnrh2d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
