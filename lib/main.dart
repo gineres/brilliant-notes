@@ -1,3 +1,4 @@
+import 'package:brilliantnotes/views/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -28,19 +29,19 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(),
+      home: const RegisterView(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class RegisterView extends StatefulWidget {
+  const RegisterView({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<RegisterView> createState() => _RegisterViewState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _RegisterViewState extends State<RegisterView> {
   //Fazendo os caras pra armazenar as informações dos TextFields pra passar pro TextButton
   late final TextEditingController _email;
   late final TextEditingController _password;
@@ -94,11 +95,24 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () async {
                 final email = _email.text;
                 final password = _password.text;
-                final userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                  email: email,
-                  password: password,
-                );
-                //print(userCredential);
+                try{
+                  final userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                    email: email,
+                    password: password,
+                  );
+                  //print(userCredential);
+                } on FirebaseAuthException catch(e){
+                  if (e.code ==  'weak-password'){
+                    print('Weak password!');
+                  }
+                  else if (e.code == 'invalid-email'){
+                    print('Please insert a valid email.');
+                  }
+                  else if (e.code == 'email-already-in-use'){
+                    print('Email is already being used.');
+                  }
+                }
+
               },
               child: const Text('Register'),
             ),
